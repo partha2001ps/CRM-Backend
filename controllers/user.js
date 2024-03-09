@@ -17,7 +17,7 @@ const usercontrollers = {
         const passwordHash = await bcrypt.hash(password, 10);
 
         const user = new User({
-          name, email, passwordHash
+          name, email, passwordHash,userRole
         });
         await user.save();
         return res.status(200).json({ message: 'User created successfully' });
@@ -34,7 +34,7 @@ const usercontrollers = {
         const passwordHash = await bcrypt.hash(password, 10);
 
         const user = new Admin({
-          name, email, passwordHash
+          name, email, passwordHash,userRole
         });
 
         await user.save()
